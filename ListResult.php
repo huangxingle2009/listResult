@@ -58,7 +58,7 @@ class ListResult {
             foreach($this->where as $key => $item) {
                 $this->model = $this->model->{$key}($item);
             }
-            $this->list = $this->model->select($fields)->offset($start)->limit($this->max_num)->get()->toArray();
+            $this->list = $this->model->select($fields)->offset($start)->limit($per_page)->get()->toArray();
         } else {
             $this->_cache_key();
             if (!$this->list = Cache::get($this->cache_key)) {
